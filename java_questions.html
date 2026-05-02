@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questions for java</title>
+    <script>
+        function start()
+        {
+        var m=14,s=59;
+        var p=setInterval(function()
+        {
+         document.getElementById("time").innerHTML="Time :- "+m +":"+s;
+         document.getElementById("time").style.color="white";
+
+         s--;
+              if(s==-1)
+              {
+              s=59;m--;
+              }
+             if(m==-1)
+             {
+            clearInterval(p);
+             }
+
+             if(m==0 && s==0)
+         {
+            for(i=0;i<c.length;i++)
+        {
+            t_over=t_over+c[i];
+        }
+            document.getElementById("ans").style.visibility='hidden';
+            document.getElementById("question").style.visibility='hidden';
+            document.getElementById("option1").style.visibility='hidden';
+            document.getElementById("option2").style.visibility='hidden';
+            document.getElementById("option3").style.visibility='hidden';
+            document.getElementById("option4").style.visibility='hidden';
+            document.getElementById("result").innerHTML="Result is = " +t_over+"/10";
+         }
+         },500)
+        }
+
+        var q=["Que no.1 : Which of the following is the correct way to declare a variable in Java?",
+               "Que no.2 : Which of the following is not a valid Java data type?",
+               "Que no.3 : What is the default value of a boolean variable in Java?",
+                "Que no.4 : Which method is used to start the execution of a Java program?",
+                "Que no.5 : How do you create an object of a class in Java?",
+                "Que no.6 : Which keyword is used to inherit a class in Java?",
+                "Que no.7 : Which of the following is used to handle exceptions in Java?",
+                "Que no.8 : What is the size of char in Java?", 
+                "Que no.9 :Which of the following access modifiers is the most restrictive?",
+                "Que no.10 : What is the purpose of the static keyword in Java?"];
+        var op1=["int x = 10;", "int", "true", "start()", "ClassName object = new ClassName();", "inherit", "try-catch", "1 byte", "public", "To declare a class-level method or variable"];
+        var op2=["int x : 10;","float", "false", "run()", "object = new ClassName();", "extends", "try-except", "2 bytes", "protected", "To declare an instance-level method or variable"];
+        var op3=["int x = = 10;","string", "0", "execute()", "ClassName object = ClassName();", "implements", "catch-finally", "4 bytes", "private", "To declare a constant variable"];
+        var op4=["int x := 10;","boolean","null", "main()", "ClassName object = create ClassName();", "inherits", "throw-catch", "8 bytes", "default", "To declare an abstract method"];
+        var ans=[1,3,2,4,1,2,1,2,3,1];
+        var c=[0,0,0,0,0,0,0,0,0,0,0];
+        var t_over=0;
+
+        function answer()
+        {
+            var p;
+            if(document.getElementById("a").checked==true)
+        {
+            p=document.getElementById("a").value;
+        }
+
+        if(document.getElementById("b").checked==true)
+        {
+            p=document.getElementById("b").value;
+        }
+
+        if(document.getElementById("c").checked==true)
+        {
+            p=document.getElementById("c").value;
+        }
+        
+        if(document.getElementById("d").checked==true)
+        {
+            p=document.getElementById("d").value;
+        }
+
+        if(p==ans[index])
+        {
+        c[index]=1;
+         document.getElementById("ans").innerHTML="Right Answer";
+         document.getElementById("ans").style.color="white";
+        }
+        else
+        {
+        c[index]=0;
+        document.getElementById("ans").innerHTML="Wrong Answer";
+        document.getElementById("ans").style.color="red";
+        }
+        }
+
+        function finish()
+        {
+            var sum=0;
+            for(i=0;i<c.length;i++)
+        {
+            sum=sum+c[i];
+        }
+            document.getElementById("ans").style.visibility='hidden';
+            document.getElementById("question").style.visibility='hidden';
+            document.getElementById("option1").style.visibility='hidden';
+            document.getElementById("option2").style.visibility='hidden';
+            document.getElementById("option3").style.visibility='hidden';
+            document.getElementById("option4").style.visibility='hidden';
+            document.getElementById("result").innerHTML="Result is = " +sum+"/10";
+        }
+        
+        function showprev()
+        {
+        index--;
+        document.getElementById("question").innerHTML=q[index];
+        document.getElementById("option1").innerHTML="<input type=radio name=op id=a value=1>"+op1[index];
+        document.getElementById("option2").innerHTML="<input type=radio name=op id=b value=2>"+op2[index];
+        document.getElementById("option3").innerHTML="<input type=radio name=op id=c value=3>"+op3[index];
+        document.getElementById("option4").innerHTML="<input type=radio name=op id=d value=4>"+op4[index];  
+        if(index<0)
+        {
+         show10();
+        }
+        }
+
+        function shownext()
+        {
+        index++;
+        document.getElementById("question").innerHTML=q[index];
+        document.getElementById("option1").innerHTML="<input type=radio name=op id=a value=1>"+op1[index];
+        document.getElementById("option2").innerHTML="<input type=radio name=op id=b value=2>"+op2[index];
+        document.getElementById("option3").innerHTML="<input type=radio name=op id=c value=3>"+op3[index];
+        document.getElementById("option4").innerHTML="<input type=radio name=op id=d value=4>"+op4[index]; 
+        if(index>9)
+        {
+         show1();
+        }
+        }
+
+        function show1()
+        {
+        index=0;
+        document.getElementById("question").innerHTML=q[0];
+        document.getElementById("option1").innerHTML="<input type=radio name=op id=a value=1>"+op1[0];
+        document.getElementById("option2").innerHTML="<input type=radio name=op id=b value=2>"+op2[0];
+        document.getElementById("option3").innerHTML="<input type=radio name=op id=c value=3>"+op3[0];
+        document.getElementById("option4").innerHTML="<input type=radio name=op id=d value=4>"+op4[0];
+        
+        }
+
+        function show2()
+        {
+        index=1;
+        document.getElementById("question").innerHTML=q[1];
+        document.getElementById("option1").innerHTML="<input type=radio name=op id=a value=1>"+op1[1];
+        document.getElementById("option2").innerHTML="<input type=radio name=op id=b value=2>"+op2[1];
+        document.getElementById("option3").innerHTML="<input type=radio name=op id=c value=3>"+op3[1];
+        document.getElementById("option4").innerHTML="<input type=radio name=op id=d value=4>"+op4[1];
+        }
+
+        function show3()
+        {
+        index=2;
+        document.getElementById("question").innerHTML=q[2];
+        document.getElementById("option1").innerHTML="<input type=radio name=op id=a value=1>"+op1[2];
+        document.getElementById("option2").innerHTML="<input type=radio name=op id=b value=2>"+op2[2];
+        document.getElementById("option3").innerHTML="<input type=radio name=op id=c value=3>"+op3[2];
+        document.getElementById("option4").innerHTML="<input type=radio name=op id=d value=4>"+op4[2];
+        }
+
+        function show4()
+        {
+        index=3;
+        document.getElementById("question").innerHTML=q[3];
+        document.getElementById("option1").innerHTML="<input type=radio name=op id=a value=1>"+op1[3];
+        document.getElementById("option2").innerHTML="<input type=radio name=op id=b value=2>"+op2[3];
+        document.getElementById("option3").innerHTML="<input type=radio name=op id=c value=3>"+op3[3];
+        document.getElementById("option4").innerHTML="<input type=radio name=op id=d value=4>"+op4[3];
+        }
+
+        function show5()
+        {
+        index=4;
+        document.getElementById("question").innerHTML=q[4];
+        document.getElementById("option1").innerHTML="<input type=radio name=op id=a value=1>"+op1[4];
+        document.getElementById("option2").innerHTML="<input type=radio name=op id=b value=2>"+op2[4];
+        document.getElementById("option3").innerHTML="<input type=radio name=op id=c value=3>"+op3[4];
+        document.getElementById("option4").innerHTML="<input type=radio name=op id=d value=4>"+op4[4];
+        }
+
+        function show6()
+        {
+        index=5;
+        document.getElementById("question").innerHTML=q[5];
+        document.getElementById("option1").innerHTML="<input type=radio name=op id=a value=1>"+op1[5];
+        document.getElementById("option2").innerHTML="<input type=radio name=op id=b value=2>"+op2[5];
+        document.getElementById("option3").innerHTML="<input type=radio name=op id=c value=3>"+op3[5];
+        document.getElementById("option4").innerHTML="<input type=radio name=op id=d value=4>"+op4[5];
+        }
+
+        function show7()
+        {
+        index=6;
+        document.getElementById("question").innerHTML=q[6];
+        document.getElementById("option1").innerHTML="<input type=radio name=op id=a value=1>"+op1[6];
+        document.getElementById("option2").innerHTML="<input type=radio name=op id=b value=2>"+op2[6];
+        document.getElementById("option3").innerHTML="<input type=radio name=op id=c value=3>"+op3[6];
+        document.getElementById("option4").innerHTML="<input type=radio name=op id=d value=4>"+op4[6];
+        }
+
+        function show8()
+        {
+        index=7;
+        document.getElementById("question").innerHTML=q[7];
+        document.getElementById("option1").innerHTML="<input type=radio name=op id=a value=1>"+op1[7];
+        document.getElementById("option2").innerHTML="<input type=radio name=op id=b value=2>"+op2[7];
+        document.getElementById("option3").innerHTML="<input type=radio name=op id=c value=3>"+op3[7];
+        document.getElementById("option4").innerHTML="<input type=radio name=op id=d value=4>"+op4[7];
+        }
+
+        function show9()
+        {
+        index=8;
+        document.getElementById("question").innerHTML=q[8];
+        document.getElementById("option1").innerHTML="<input type=radio name=op id=a value=1>"+op1[8];
+        document.getElementById("option2").innerHTML="<input type=radio name=op id=b value=2>"+op2[8];
+        document.getElementById("option3").innerHTML="<input type=radio name=op id=c value=3>"+op3[8];
+        document.getElementById("option4").innerHTML="<input type=radio name=op id=d value=4>"+op4[8];
+        }
+
+        function show10()
+        {
+        index=9;
+        document.getElementById("question").innerHTML=q[9];
+        document.getElementById("option1").innerHTML="<input type=radio name=op id=a value=1>"+op1[9];
+        document.getElementById("option2").innerHTML="<input type=radio name=op id=b value=2>"+op2[9];
+        document.getElementById("option3").innerHTML="<input type=radio name=op id=c value=3>"+op3[9];
+        document.getElementById("option4").innerHTML="<input type=radio name=op id=d value=4>"+op4[9];
+        }
+       
+
+    </script>
+    <style>
+        body{
+            background-image:linear-gradient(to left,#77E4C8,#36C2CE,#478CCF,#4535C1);
+            }
+
+        .button{
+          text-align: center;
+          width:90px;
+          height:30px;
+          font-size:20px;
+          border: transparent groove;
+          border-radius:8px;
+          margin:8px;
+          box-shadow: 2px 2px 4px blue;
+        }
+        .button:hover
+        {
+            box-shadow: 2px 2px 5px black;
+        }
+        p{
+            font-size:25px;
+            color: white;
+        }
+        .h1{
+            color: black;
+            font-family: cursive;
+            text-align: center;
+            text-decoration: underline;
+            text-shadow: 1px 1px 3px white;
+        }
+        .ans
+        {
+          background-color: green;
+          color:white;
+          text-align: center;
+          width:90px;
+          height:30px;
+          font-size:20px;
+          border: transparent groove;
+          border-radius:8px;
+          margin:8px;
+          box-shadow: 2px 2px 4px black;
+
+        }
+
+    </style>
+</head>
+<body>
+<span><text id="time" style="font-size:30px;" class="h1"><input type="button" value="Start" onclick="start()" class="button"></text></span>
+    
+<h1 class="h1">Questions For JAVA Language</h1>
+
+<input type="button" value="1" onclick="show1()" class="button">
+<input type="button" value="2" onclick="show2()" class="button">
+<input type="button" value="3" onclick="show3()" class="button">
+<input type="button" value="4" onclick="show4()" class="button">
+<input type="button" value="5" onclick="show5()" class="button">
+<input type="button" value="6" onclick="show6()" class="button">
+<input type="button" value="7" onclick="show7()" class="button">
+<input type="button" value="8" onclick="show8()" class="button">
+<input type="button" value="9" onclick="show9()" class="button">
+<input type="button" value="10" onclick="show10()" class="button">
+
+    <p id="question"></p>
+    <p id="option1"></p>
+    <p id="option2"></p>
+    <h1 id="result"></h1>
+    <p id="option3"></p>
+    <p id="option4"></p>
+    <p id="answer"></p>
+    
+
+<input type="button" value="Prev" onclick="showprev()" class="button">
+<input type="button" value="Next" onclick="shownext()" class="button">
+<input type="button" value="Answer" onclick="answer()" class="ans">
+<p id="ans"></p>
+<input type="button" value="Finish" onclick="finish()" class="ans">
+<a href="exam_paper.html"><input type="button" value="End" class="ans"></a>
+
+
+</body>
+</html>
